@@ -4,4 +4,4 @@ PARA ENTRAR AL PORTAFOLIO HAGA CLICK <a href="https://jhonatan11530.github.io/" 
 
 TO ENTER THE PORTFOLIO CLICK <a href="https://jhonatan11530.github.io/" target="_blank">portfolio</a>
 asdasd
-[demo](https://example.com)
+[demo](https://example.com){:target="_blank"}
