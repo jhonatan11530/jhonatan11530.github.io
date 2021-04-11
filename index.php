@@ -1,10 +1,8 @@
 <?php
 $idioma = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 if($idioma=='es'){
-    header("Location: es");
-}elseif($idioma=='fr'){
-    header("Location: fr");
+    header("Location: https://jhonatan11530.github.io/es");
 }else{
-    header("Location: en");
+    header("Location: https://jhonatan11530.github.io/en");
 }
 ?>
