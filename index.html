@@ -3,110 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="portfolio jhonatan argentandez">
     <title>portfolio</title>
     <link rel="shortcut icon" href="image/portfolio.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/datatables.min.css">
     <script src="js/jquery.slim.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-</head>
-<body>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/datatables.min.js"></script>
     <style>
         body {
             margin: 0;
             padding: 0;
             overflow-x: hidden;
         }
-
-        .navbar {
-            position: fixed;
-            width: 100%;
-            background-color: transparent !important;
-            /* Navbar transparente */
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-            /* Línea blanca con opacidad */
-            backdrop-filter: blur(10px);
-            /* Fondo desenfocado */
-            z-index: 10;
-            /* Asegura que la navbar esté encima del contenido */
-            transition: color 0.3s ease;
-            /* Transición suave para el color del texto */
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-        }
-
-        .nav-link {
-            color: #fff;
-            /* Color de texto blanco por defecto */
-            margin: 0 15px;
-            /* Espaciado entre los enlaces */
-            transition: color 0.3s ease;
-            /* Transición suave para el color del texto */
-        }
-
-        .nav-link:hover {
-            color: #f0f0f0;
-            /* Color de texto en hover */
-        }
-
-        .navbar-scrolled .nav-link {
-            color: #000;
-            /* Nuevo color de texto después de hacer scroll */
-        }
-
-        .navbar-scrolled {
-            background-color: rgba(255, 255, 255, 0.9) !important;
-            /* Fondo blanco semitransparente después de hacer scroll */
-            border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-            /* Línea negra con opacidad después de hacer scroll */
-        }
-
-        .navbar-nav {
-            flex-direction: row;
-            /* Distribuir los elementos horizontalmente */
-        }
-
-        .navbar-nav .nav-item {
-            text-align: center;
-            /* Centrar texto dentro de los ítems */
-        }
-
-        @media (max-width: 991.98px) {
-            .navbar-nav {
-                text-align: center;
-                /* Centrar elementos en dispositivos móviles */
-            }
-
-            .nav-link {
-                margin: 10px 0;
-                /* Espaciado vertical en móviles */
-            }
-        }
     </style>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Description</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre mí</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <img src="image/Que-es-la-programacion-reactiva-scaled.webp" class="img-fluid w-100 h-100 mb-4"
-        alt="image not found">
+    <script>
+        $(document).ready(function () {
+            let now = new Date();
+            let anio = now.getFullYear();
+            $("#age").text(anio - 1998);
+            $("#date_today").text("© 2017 - " + anio);
+
+            initGitHubRepos('jhonatan11530');   // Función para obtener y mostrar repositorios de un usuario de GitHub
+        // Función para obtener y mostrar repositorios de un usuario de GitHub
+        async function initGitHubRepos(username) {
+            try {
+                const response = await fetch(`https://api.github.com/users/${username}/repos`);
+                const repos = await response.json();
+
+                const tableBody = $('#reposTable tbody');
+                repos.forEach(repo => {
+                    const row = `
+                        <tr>
+                            <td>${repo.name}</td>
+                            <td>${repo.description || 'No description'}</td>
+                            <td>${repo.language}</td>
+                            <td><a href="${repo.html_url}" target="_blank">Ver Repositorio</a></td>
+                        </tr>
+                    `;
+                    tableBody.append(row);
+                });
+
+                // Inicializar DataTable después de cargar los datos
+                $('#reposTable').DataTable();
+            } catch (error) {
+                console.error('Error al obtener los repositorios:', error);
+            }
+        }
+        });
+    </script>
+</head>
+<body>
     <!-- About me -->
     <section id="about" class="jumbotron">
         <div class="container section-title aos-init aos-animate" data-aos="fade-up">
@@ -117,12 +65,13 @@
 
             <div class="row gy-4 justify-content-center">
                 <div class="col-lg-4">
-                    <img src="image/sql-server.svg" class="img-fluid" alt="">
+                    <img src="https://scontent.fclo2-2.fna.fbcdn.net/v/t39.30808-6/456839523_8007746375974052_6294530241068842781_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=24cWF47R89QQ7kNvgE-kYo4&_nc_ht=scontent.fclo2-2.fna&oh=00_AYBE9SqRSYjHbMmiEQ1P2ZWaRW20q4es898-XRLlvPLytA&oe=66D056E2" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-8 content">
                     <h2>Developer Software.</h2>
                     <p class="fst-italic py-3">
-                        desarrollador con mas de 3 años de experiencia en la programacion tengo conocimientos solidos
+                        desarrollador con mas de 3 años de experiencia en la programacion tengo conocimientos
+                        solidos
                         en varios lenguajes de programacion
                     </p>
                     <div class="row">
@@ -135,10 +84,10 @@
                         </div>
                         <div class="col-lg-6">
                             <ul>
-                                <li><strong>Age:</strong> <span>24</span></li>
+                                <li><strong>Age:</strong> <span id="age">24</span></li>
                                 <li><strong>Degree:</strong> <span>Enginner</span>
                                 </li>
-                                <li><strong>Email:</strong><span>jhonatan.fernandez1153@gmail.com</span></li>
+                                <li><strong>Email:</strong> <span>jhonatan.fernandez1153@gmail.com</span></li>
                             </ul>
                         </div>
                     </div>
@@ -175,36 +124,39 @@
                     <div class="card text-center">
                         <div class="card-body">
                             <img src="image/c-sharp.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found">
+                                alt="image not found" loading="lazy">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-2 mb-2 text-center">
                     <div class="card">
                         <div class="card-body">
-                            <img src="image/java.svg" class="img-fluid" width="100" height="100" alt="image not found">
+                            <img src="image/java.svg" class="img-fluid" width="100" height="100" alt="image not found"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-2 mb-2 text-center">
                     <div class="card">
                         <div class="card-body">
-                            <img src="image/php.svg" class="img-fluid" width="100" height="100" alt="image not found">
+                            <img src="image/php.svg" class="img-fluid" width="100" height="100" alt="image not found"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-2 mb-2 text-center">
                     <div class="card">
                         <div class="card-body">
-                            <img src="image/mysql.svg" class="img-fluid" width="100" height="100" alt="image not found">
+                            <img src="image/mysql.svg" class="img-fluid" width="100" height="100" alt="image not found"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-2 mb-2 text-center">
                     <div class="card">
                         <div class="card-body">
-                            <img src="image/oracle.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found">
+                            <img src="image/oracle.svg" class="img-fluid" width="100" height="100" alt="image not found"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -212,7 +164,7 @@
                     <div class="card">
                         <div class="card-body">
                             <img src="image/sql-server.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found">
+                                alt="image not found" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -220,7 +172,7 @@
                     <div class="card">
                         <div class="card-body">
                             <img src="image/laravel.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found">
+                                alt="image not found" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -228,7 +180,7 @@
                     <div class="card">
                         <div class="card-body">
                             <img src="image/flutter.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found">
+                                alt="image not found" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -236,7 +188,7 @@
                     <div class="card">
                         <div class="card-body">
                             <img src="image/angular.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found">
+                                alt="image not found" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -244,7 +196,7 @@
                     <div class="card">
                         <div class="card-body">
                             <img src="image/google-cloud.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found">
+                                alt="image not found" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -263,7 +215,7 @@
                         <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=664DD770BBDD539E63339DC1A312A4D10DCE9B586C5FFC169E7B18B10139351A"
                             target="_blank">
                             <img src="image/Oracle-Cloud-Data-Management-2023-Certified-Foundations-Associate.svg"
-                                class="img-fluid" alt="image not found">
+                                class="img-fluid" alt="image not found" loading="lazy">
                         </a>
                     </div>
                 </div>
@@ -272,9 +224,34 @@
                         <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=B6A9C33D38E52EE06CD8D75F8AF8D5DF7099D10CC61E48693E8205EFD33B097C"
                             target="_blank">
                             <img src="image/Oracle-Cloud-Infrastructure-2023-Certified-Foundations-Associate.svg"
-                                class="img-fluid" alt="image not found">
+                                class="img-fluid" alt="image not found" loading="lazy">
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Certifications -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center text-primary">
+                    <h2>GITHUB REPOSITORIES</h2>
+                </div>
+                <div class="col-sm-12 text-center text-primary">
+                    <table id="reposTable" class="display">
+                        <thead>
+                            <tr>
+                                <th>Nombre del Repositorio</th>
+                                <th>Descripción</th>
+                                <th>lenguajes</th>
+                                <th>Enlace</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí se insertarán los datos de los repositorios -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -284,10 +261,13 @@
     <section>
         <div class="container">
             <h2>Resume</h2>
-            <p>Welcome to my portfolio! I'm jhonatan fernandez muñoz, a passionate software developer with over 3 years
+            <p>Welcome to my portfolio! I'm jhonatan fernandez muñoz, a passionate software developer with over 3
+                years
                 of
-                experience in the technology sector. My focus is on creating innovative and efficient solutions using a
-                variety of modern technologies. In this portfolio, you'll find examples of my work, skills, and how you
+                experience in the technology sector. My focus is on creating innovative and efficient solutions
+                using a
+                variety of modern technologies. In this portfolio, you'll find examples of my work, skills, and how
+                you
                 can
                 get in touch with me.</p>
         </div>
@@ -297,15 +277,19 @@
                     <h3 class="resume-title">Sumary</h3>
                     <div class="resume-item pb-0">
                         <h4>Jhonatan fernandez</h4>
-                        <p><em>Software Developer with 3+ years of experience in the technology sector, specialized in
+                        <p><em>Software Developer with 3+ years of experience in the technology sector, specialized
+                                in
                                 .NET
                                 C#,
-                                Java and PHP. Proficient in development with the Laravel framework. Extensive experience
+                                Java and PHP. Proficient in development with the Laravel framework. Extensive
+                                experience
                                 in
                                 database
-                                management, including Oracle, SQL Server and MySQL. Currently certified in Oracle Cloud
+                                management, including Oracle, SQL Server and MySQL. Currently certified in Oracle
+                                Cloud
                                 Infrastructure
-                                (OCI), demonstrating advanced skills and deep knowledge in Oracle environments. Skilled
+                                (OCI), demonstrating advanced skills and deep knowledge in Oracle environments.
+                                Skilled
                                 in
                                 implementing
                                 innovative solutions and optimizing development processes.</em></p>
@@ -330,7 +314,8 @@
                             professional in
                             the design, implementation and management of technological solutions to solve business
                             problems
-                            and improve operational efficiency. This degree trains individuals with advanced skills in
+                            and improve operational efficiency. This degree trains individuals with advanced skills
+                            in
                             systems analysis, software development and technological project management.</p>
                     </div>
                     <h3 class="resume-title">Complementary Education</h3>
@@ -374,11 +359,13 @@
                         <h5>JUNE 2023 - PRESENT</h5>
                         <p><em>Nexura International , Cali, Colombia</em></p>
                         <ul>
-                            <li>Development of applications under the PHP language (LARAVEL) for mayors, governors or
+                            <li>Development of applications under the PHP language (LARAVEL) for mayors, governors
+                                or
                                 national government in software development, we always work with software quality
                                 standards,
                                 offering a minimum of 80%, implementation of the Azure DEVOPS system for continuous
-                                workflow, implementation of the CI/CD system, management of multiple databases such as
+                                workflow, implementation of the CI/CD system, management of multiple databases such
+                                as
                                 MYSQL
                             </li>
                         </ul>
@@ -390,9 +377,11 @@
                         <ul>
                             <li>Development of applications under the C# .NET language medical software, the entire
                                 software
-                                development process was done under the best software practices, implementation of the
+                                development process was done under the best software practices, implementation of
+                                the
                                 Azure
-                                DEVOPS system for continuous development, implementation of the CI/CD system, management
+                                DEVOPS system for continuous development, implementation of the CI/CD system,
+                                management
                                 of
                                 multiple databases such as SQL SERVER and ORACLE</li>
                         </ul>
@@ -403,7 +392,8 @@
                         <p><em>KOOL MARKETING, Cali, Colombia</em></p>
                         <ul>
                             <li>Development of online stores made in WordPress</li>
-                            <li>working on creating e-commerce stores from scratch as a frontend and backend developer
+                            <li>working on creating e-commerce stores from scratch as a frontend and backend
+                                developer
                             </li>
                             <li>In online stores, a payment gateway is implemented, software testing is carried out
                                 during
@@ -434,10 +424,12 @@
                             <li>Created and developed a mobile web application to monitor the Production area</li>
                             <li>The graphical interface is friendly to the end user and is 80% easy to use</li>
                             <li>Unit tests were carried out to validate the quality of the software</li>
-                            <li>Developed in Java and PHP (LARAVEL framework) the mobile application made in Java for
+                            <li>Developed in Java and PHP (LARAVEL framework) the mobile application made in Java
+                                for
                                 Android devices, web application for monitoring records, implementation of the AZURE
                                 DEVOPS
-                                system as continuous development and implementation of the CI / CD system,SQL SERVER and
+                                system as continuous development and implementation of the CI / CD system,SQL SERVER
+                                and
                                 MYSQL and ORACLE database was managed</li>
                         </ul>
                     </div>
@@ -447,90 +439,30 @@
     </section>
     <hr class="my-4">
     <section>
-        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-            <h2>Contact</h2>
-            <p>If you are interested you can contact me <br> Feel free to reach out with any questions, opportunities,
-                or
-                collaborations.<br> I look forward to connecting with you!</p>
-        </div>
-        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="row gy-4">
-                <div class="col-lg-5">
-                    <div class="info-wrap">
-                        <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-                            <i class="bi bi-telephone flex-shrink-0"></i>
-                            <div>
-                                <h3>Call Us</h3>
-                                <p>+57 311 436 08 30</p>
-                            </div>
-                        </div>
-                        <div class="info-item d-flex aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
-                            <i class="bi bi-envelope flex-shrink-0"></i>
-                            <div>
-                                <h3>Email Us</h3>
-                                <p>jhonatan.fernandez1153@gmail</p>
-                            </div>
-                        </div>
-                    </div>
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Contact</h2>
+                    <p>If you are interested you can contact me <br> Feel free to reach out with any questions,
+                        opportunities,
+                        or
+                        collaborations.<br> I look forward to connecting with you!</p>
                 </div>
-                <div class="col-sm-7">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127450.10996442953!2d-76.60806513511572!3d3.3950608971419642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a6f0cc4bb3f1%3A0x1f0fb5e952ae6168!2sCali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1723175007315!5m2!1ses!2sco"
-                        frameborder="0" style="border:0; width: 100%; height: 250px;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="col-sm-6">
+                    <h3>Call Us</h3>
+                    <p>+57 311 436 08 30</p>
+                    <h3>Email Us</h3>
+                    <p>jhonatan.fernandez1153@gmail</p>
                 </div>
             </div>
         </div>
     </section>
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <footer class="pt-4 pt-md-5 border-top">
         <div class="row">
-            <div class="col-12 col-md">
-                <img class="mb-2" src="#" alt="" width="24" height="24">
-                <small class="d-block mb-3 text-muted">© 2017- 2024</small>
-
-            </div>
-            <div class="col-6 col-md">
-                <h5>Quien soy</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Cool stuff</a></li>
-                    <li><a class="text-muted" href="#">Random feature</a></li>
-                    <li><a class="text-muted" href="#">Team feature</a></li>
-                    <li><a class="text-muted" href="#">Stuff for developers</a></li>
-                    <li><a class="text-muted" href="#">Another one</a></li>
-                    <li><a class="text-muted" href="#">Last time</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Social links</h5>
-                <ul class="list-unstyled text-small">
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-facebook" viewBox="0 0 16 16">
-                            <path
-                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-                        </svg>
-                        <a class="text-muted" href="https://www.facebook.com/jhonatan.fernandez.munos?mibextid=ZbWKwL"
-                            target="_blank">Facebook</a>
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-instagram" viewBox="0 0 16 16">
-                            <path
-                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                        </svg>
-                        <a class="text-muted" href="https://www.instagram.com/jhonferm1153?igsh=MW93MTVyOWgyMnIwbA=="
-                            target="_blank">Instagram</a>
-                    </li>
-                    <li>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-linkedin" viewBox="0 0 16 16">
-                            <path
-                                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                        </svg>
-                        <a class="text-muted" href="https://www.linkedin.com/in/jhonatanfernandez"
-                            target="_blank">Linkedin</a>
-                    </li>
-                </ul>
+            <div class="col-sm-12 text-center">
+                <img class="mb-2" src="image/portfolio.svg" alt="image not found" width="24" height="24">
+                <p class="d-block mb-3 text-muted">Portfolio jhonatan fernandez</p>
+                <small class="d-block mb-3 text-muted" id="date_today"></small>
             </div>
         </div>
     </footer>
