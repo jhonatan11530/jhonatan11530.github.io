@@ -14,31 +14,6 @@
     <script>
         $(document).ready(function () {
 
-            // Inicializar DataTable después de cargar los datos 
-            $('#reposTable').DataTable({
-                order: false,
-                ordering: false,
-                language: {
-                    "decimal": "",
-                    "emptyTable": "No hay información",
-                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-                    "infoPostFix": "",
-                    "thousands": ",",
-                    "lengthMenu": "Mostrar _MENU_ Entradas",
-                    "loadingRecords": "Cargando...",
-                    "processing": "Procesando...",
-                    "search": "Buscar:",
-                    "zeroRecords": "Sin resultados encontrados",
-                    "paginate": {
-                        "first": "Primero",
-                        "last": "Ultimo",
-                        "next": "Siguiente",
-                        "previous": "Anterior"
-                    }
-                }
-            });
 
             let now = new Date();
             let anio = now.getFullYear();
@@ -66,6 +41,32 @@
                     `;
                         tableBody.append(row);
                     });
+                                // Inicializar DataTable después de cargar los datos 
+            $('#reposTable').DataTable({
+                order: false,
+                ordering: false,
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+
                 } catch (error) {
                     console.error('Error al obtener los repositorios:', error);
                 }
@@ -162,22 +163,12 @@
     <section class="position-relative overflow-hidden text-center bg-primary py-5">
         <div class="container my-5 text-white text-center">
             <h2 class="font-weight-normal">Developer Software.</h2>
-            <p class="lead font-weight-normal">With more than 3 years of experience, I have specialized in
-                backend
-                development with C#, Java, PHP and .NET, as well as in creating frontend solutions with
-                JavaScript and TypeScript. Additionally, I have experience in mobile development using Flutter
-                and in the efficient management of databases such as Oracle, SQL Server and MySQL.</p>
-            <div class="row">
-                <div class="col-sm-4 text-center">
-                    <p><strong>Degree:</strong><br><span>Enginner</span></p>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <p><strong>Birthday:</strong><br><span>8 Sep 1998</span></p>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <p><strong>Age:</strong><br><span id="age">24</span></p>
-                </div>
-            </div>
+            <p class="lead font-weight-normal">Software Developer with 3+ years of experience in the technology sector,
+                specialized in .NET C#, Java and PHP. Proficient in development with the Laravel framework. Extensive
+                experience in database management, including Oracle, SQL Server and MySQL. Currently certified in Oracle
+                Cloud Infrastructure (OCI), demonstrating advanced skills and deep knowledge in Oracle environments.
+                Skilled in implementing innovative solutions and optimizing development processes.</p>
+
         </div>
     </section>
     <!-- Skills -->
