@@ -35,8 +35,6 @@
                     });
                 } // End if
             });
-        });
-        $(document).ready(function () {
 
             let now = new Date();
             let anio = now.getFullYear();
@@ -59,7 +57,6 @@
                         <tr>
                             <td>${repo.name}</td>
                             <td>${repo.description || 'No description'}</td>
-                            <td>${repo.language}</td>
                             <td><a href="${repo.html_url}" target="_blank">Ver Repositorio</a></td>
                         </tr>
                     `;
@@ -95,13 +92,65 @@
                     console.error('Error al obtener los repositorios:', error);
                 }
             }
+
+            // Lenguajes
+            const languajesSVG = [
+                { name: 'C#', imgSrc: 'image/c-sharp.svg' },
+                { name: 'Java', imgSrc: 'image/java.svg' },
+                { name: 'PHP', imgSrc: 'image/php.svg' },
+                { name: 'MySQL', imgSrc: 'image/mysql.svg' },
+                { name: 'Oracle', imgSrc: 'image/oracle.svg' },
+                { name: 'SQL Server', imgSrc: 'image/sql-server.svg' },
+                { name: 'Laravel', imgSrc: 'image/laravel.svg' },
+                { name: 'Flutter', imgSrc: 'image/flutter.svg' },
+                { name: 'Angular', imgSrc: 'image/angular.svg' },
+                { name: 'Google Cloud', imgSrc: 'image/google-cloud.svg' }
+            ];
+
+            const CertificationsSVG = [
+                { name: 'Oracle Cloud Data Management 2023', imgSrc: 'image/Oracle-Cloud-Data-Management-2023-Certified-Foundations-Associate.svg', href: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=664DD770BBDD539E63339DC1A312A4D10DCE9B586C5FFC169E7B18B10139351A' },
+                { name: 'Oracle Cloud Infrastructure 2023', imgSrc: 'image/Oracle-Cloud-Infrastructure-2023-Certified-Foundations-Associate.svg', href: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=B6A9C33D38E52EE06CD8D75F8AF8D5DF7099D10CC61E48693E8205EFD33B097C' },
+            ];
+
+            // Crea las tarjetas
+            $.each(languajesSVG, function (index, card) {
+                const cardHtml = `
+                    <div class="col-sm-2 mb-2">
+                       <div class="card">
+                            <div class="card-body">
+                                <img src="${card.imgSrc}" class="img-fluid" width="100" height="100" alt="${card.name}" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                `;
+                // Añade la tarjeta al contenedor
+                $('#Languajes').append(cardHtml);
+            });
+
+            // Crea las tarjetas
+            $.each(CertificationsSVG, function (index, card) {
+                const cardHtml = `
+                <div class="col-sm-3 mb-2">
+                    <div class="card">
+                        <a href="${card.href}"
+                            target="_blank">
+                            <img src="${card.imgSrc}"
+                                class="img-fluid" alt="${card.name}" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                `;
+                // Añade la tarjeta al contenedor
+                $('#Certifications').append(cardHtml);
+            });
         });
+
     </script>
 </head>
 <body>
     <header class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary">
         <a class="navbar-brand" href="#"><img class="mb-2" src="image/portfolio.svg" alt="image not found" width="32"
-                height="32"> Portfolio</a>
+                height="32" loading="lazy"> Portfolio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -115,206 +164,118 @@
         </div>
     </header>
     <!-- About me -->
-    <section>
-        <div class="position-relative overflow-hidden bg-light py-5" id="AboutDetail">
-            <div class="container my-5">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h1 class="display-1 lh-1 mb-5 font-weight-normal">About</h1>
-                        <p class="lead font-weight-normal">Hello! I’m Jhonatan Fernández, a Technologist in Information
-                            Systems Development, graduated in 2019. I specialize in software development, working with
-                            various programming languages and tools to build efficient systems. I’m always learning and
-                            keeping up with new technology to deliver the best results</p>
-                    </div>
-                    <div class="col-lg-6">
-                        <img src="" id="avatar" class="img-fluid img-thumbnail rounded-circle" alt="image no found"
-                            width="400" height="400">
-                    </div>
+    <section class="position-relative overflow-hidden bg-light py-5">
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1 class="display-1 mb-5 font-weight-normal">About</h1>
+                    <p class="lead font-weight-normal">Hello! I’m Jhonatan Fernández, a Technologist in Information
+                        Systems Development, graduated in 2019. I specialize in software development, working with
+                        various programming languages and tools to build efficient systems. I’m always learning and
+                        keeping up with new technology to deliver the best results</p>
                 </div>
-            </div>
-        </div>
-        <div class="position-relative overflow-hidden text-center bg-primary text-white py-5">
-            <div class="container">
-                <p class="display-4 font-weight-normal">Developer Software.</p>
-                <p class="lead font-weight-normal">With more than 3 years of experience, I have specialized in
-                    backend
-                    development with C#, Java, PHP and .NET, as well as in creating frontend solutions with
-                    JavaScript and TypeScript. Additionally, I have experience in mobile development using Flutter
-                    and in the efficient management of databases such as Oracle, SQL Server and MySQL.</p>
-                <div class="row">
-                    <div class="col-sm-6 text-center">
-                        <p><strong>Birthday:</strong><br><span>8 Sep 1998</span></p>
-                        <p><strong>City:</strong><br><span>Santiago de Cali, Colombia</span></p>
-                    </div>
-                    <div class="col-sm-6 text-center">
-                        <p><strong>Age:</strong><br><span id="age">24</span></p>
-                        <p><strong>Degree:</strong><br><span>Enginner</span></p>
-                    </div>
+                <div class="col-sm-6">
+                    <img src="" id="avatar" class="img-fluid img-thumbnail rounded-circle" alt="image no found"
+                        width="400" height="400" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
-
+    <section class="position-relative overflow-hidden text-center bg-primary py-5">
+        <div class="container my-5 text-white text-center">
+            <h2 class="display-3 font-weight-normal">Developer Software.</h2>
+            <p class="lead font-weight-normal">With more than 3 years of experience, I have specialized in
+                backend
+                development with C#, Java, PHP and .NET, as well as in creating frontend solutions with
+                JavaScript and TypeScript. Additionally, I have experience in mobile development using Flutter
+                and in the efficient management of databases such as Oracle, SQL Server and MySQL.</p>
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                    <p><strong>Degree:</strong><br><span>Enginner</span></p>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <p><strong>Birthday:</strong><br><span>8 Sep 1998</span></p>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <p><strong>Age:</strong><br><span id="age">24</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Skills -->
-    <section>
-        <div class="container-fluid">
+    <section class="position-relative overflow-hidden bg-light py-5">
+        <div class="container my-5 text-center">
             <div class="row">
-                <div class="col-sm-12 text-center text-primary">
-                    <h2>TECHNICAL SKILLS</h2>
-                </div>
-                <div class="col-sm-2 mb-2">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <img src="image/c-sharp.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 mb-2 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="image/java.svg" class="img-fluid" width="100" height="100" alt="image not found"
-                                loading="lazy">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 mb-2 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="image/php.svg" class="img-fluid" width="100" height="100" alt="image not found"
-                                loading="lazy">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 mb-2 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="image/mysql.svg" class="img-fluid" width="100" height="100" alt="image not found"
-                                loading="lazy">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 mb-2 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="image/oracle.svg" class="img-fluid" width="100" height="100" alt="image not found"
-                                loading="lazy">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 mb-2 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="image/sql-server.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 mb-2 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="image/laravel.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 mb-2 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="image/flutter.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 mb-2 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="image/angular.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2 mb-2 text-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <img src="image/google-cloud.svg" class="img-fluid" width="100" height="100"
-                                alt="image not found" loading="lazy">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Certifications -->
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12 text-center text-primary">
-                    <h2>CERTIFICATIONS</h2>
-                </div>
-                <div class="col-sm-6 mb-2">
-                    <div class="card">
-                        <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=664DD770BBDD539E63339DC1A312A4D10DCE9B586C5FFC169E7B18B10139351A"
-                            target="_blank">
-                            <img src="image/Oracle-Cloud-Data-Management-2023-Certified-Foundations-Associate.svg"
-                                class="img-fluid" alt="image not found" loading="lazy">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-sm-6 mb-2">
-                    <div class="card">
-                        <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=B6A9C33D38E52EE06CD8D75F8AF8D5DF7099D10CC61E48693E8205EFD33B097C"
-                            target="_blank">
-                            <img src="image/Oracle-Cloud-Infrastructure-2023-Certified-Foundations-Associate.svg"
-                                class="img-fluid" alt="image not found" loading="lazy">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Certifications -->
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-12 text-center text-primary">
-                    <h2>GITHUB REPOSITORIES</h2>
-                </div>
                 <div class="col-sm-12">
-                    <table id="reposTable" class="table">
-                        <thead>
-                            <tr>
-                                <th>Repositorio</th>
-                                <th>Descripción</th>
-                                <th>lenguajes</th>
-                                <th>Enlace</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Aquí se insertarán los datos de los repositorios-->
-                        </tbody>
-                    </table>
+                    <h2 class="display-3 mb-5 font-weight-normal">TECHNICAL SKILLS</h2>
+                    <p class="lead font-weight-normal">I have strong skills in the following languages ​​and
+                        technologies: C#, Java, PHP, MySQL, Oracle, SQL Server, Laravel, Flutter and Angular.
+                        Additionally, I have experience working with cloud platforms such as Google Cloud and Oracle
+                        Cloud, where I have implemented scalable and efficient solutions. Throughout my career, I
+                        have developed and optimized web and mobile applications, taking advantage of these
+                        languages ​​and frameworks to create robust and well-structured products, adapted to the
+                        specific needs of each project.</p>
                 </div>
+                <div class="row" id="Languajes">
+                    <!-- Las tarjetas se generarán dinámicamente aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Certifications -->
+    <section class="position-relative overflow-hidden bg-primary py-5">
+        <div class="container my-5 text-white text-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="display-3 mb-5 font-weight-normal">CERTIFICATIONS</h2>
+                    <p class="lead font-weight-normal">I have certifications in Oracle Cloud, supporting my ability
+                        to design, implement, and manage solutions on these
+                        leading cloud platforms. These certifications demonstrate my experience in scalable
+                        architectures, cloud security, process automation, and resource optimization.</p>
+                </div>
+                <div class="row" id="Certifications">
+                    <!-- Las tarjetas se generarán dinámicamente aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Repo List in Github -->
+    <section class="position-relative overflow-hidden bg-light py-5">
+        <div class="container my-5 text-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="display-3 mb-5 font-weight-normal">MY PROJECTS ON GITHUB</h2>
+                    <p class="lead font-weight-normal">My projects on GitHub represent a collection of developments I
+                        have worked on, spanning various technologies and solutions to real problems. In this
+                        repository, you'll find examples of web applications, automation tools, and cloud infrastructure
+                        scripts that I've developed using languages ​​like C#, Java, and PHP, and frameworks like
+                        Laravel, Angular, and Flutter. Each project reflects my ability to apply good coding practices,
+                        collaborate in version control environments, and manage projects from planning to final
+                        deployment on cloud platforms such as Google Cloud, Oracle Cloud, and Azure.</p>
+                </div>
+                <table id="reposTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Name projects</th>
+                            <th>Description</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se insertarán los datos de los repositorios-->
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
     <!-- Resume -->
-    <hr class="my-4">
-    <section>
-        <div class="container-fluid">
-            <h2>Resume</h2>
-            <p>Welcome to my portfolio! I'm jhonatan fernandez muñoz, a passionate software developer with over 3
-                years
-                of
-                experience in the technology sector. My focus is on creating innovative and efficient solutions
-                using a
-                variety of modern technologies. In this portfolio, you'll find examples of my work, skills, and how
-                you
-                can
-                get in touch with me.</p>
+    <section class="position-relative overflow-hidden bg-primary py-5">
+        <div class="container-fluid my-5 text-white">
             <div class="row">
-                <div class="col-lg-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="resume-title">Sumary</h3>
+                <div class="col-sm-12 text-center">
+                    <h2 class="display-3 mb-5 font-weight-normal">RESUME CV</h2>
+                </div>
+                <div class="col-sm-6">
                     <div class="resume-item pb-0">
                         <h4>Jhonatan fernandez</h4>
                         <p><em>Software Developer with 3+ years of experience in the technology sector, specialized
@@ -392,7 +353,7 @@
                         <p><em>Udemy</em></p>
                     </div>
                 </div>
-                <div class="col-lg-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-sm-6">
                     <h3 class="resume-title">Professional Experience</h3>
                     <div class="resume-item">
                         <h4>Programmer</h4>
@@ -477,43 +438,93 @@
             </div>
         </div>
     </section>
-    <hr class="my-4">
-    <!-- Contact -->
+    <!-- Contact and Footer -->
     <footer>
-        <div class="position-relative overflow-hidden bg-primary py-5 text-white" id="AboutDetail">
+        <div class="position-relative overflow-hidden bg-primary ">
+            <div class="dropdown-divider"></div>
             <div class="container my-5">
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <h2>Contact</h2>
-                        <p>If you are interested you can contact me <br> Feel free to reach out with any questions,
-                            opportunities,
-                            or
-                            collaborations.<br> I look forward to connecting with you!</p>
-                    </div>
-                    <div class="col-sm-4">
-                        <h3>Call Us</h3>
-                        <p>+57 311 436 08 30</p>
-                    </div>
-                    <div class="col-sm-4">
-                        <h3>Email Us</h3>
-                        <p>jhonatan.fernandez1153@gmail.com</p>
-                    </div>
-                    <div class="col-sm-4">
-                        <h3>location</h3>
-                        <p>Santiago de Cali, Colombia</p>
+                <div class="row text-center">
+                    <div class="col-sm-12">
+                        <div class="col-sm-12 text-white">
+                            <h2>Contact</h2>
+                            <p>If you are interested you can contact me <br> Feel free to reach out with any questions,
+                                opportunities,
+                                or
+                                collaborations.<br> I look forward to connecting with you!</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 form-group">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <img src="image/llamanos.svg" width="100" height="100" alt="image not found"
+                                            loading="lazy">
+                                    </div>
+                                    <div class="col-sm-6 text-white">
+                                        <h3>Phone</h3>
+                                        <p>(57) 311 436 08 30</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <img src="image/gmail.svg" width="100" height="100" alt="image not found"
+                                            loading="lazy">
+                                    </div>
+                                    <div class="col-sm-6 text-white">
+                                        <h3>Email</h3>
+                                        <p>jhonatan.fernandez1153@gmail</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 form-group">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <img src="image/Location.svg" width="100" height="100" alt="image not found"
+                                            loading="lazy">
+                                    </div>
+                                    <div class="col-sm-6 text-white">
+                                        <h3>Location</h3>
+                                        <p>Cali, Colombia</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
                 <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <img class="mb-2" src="image/portfolio.svg" alt="image not found" width="24" height="24">
+                    <div class="col-sm-12 text-center text-white">
+                        <img class="mb-2" src="image/portfolio.svg" alt="image not found" width="32" height="32"
+                            loading="lazy">
                         <p class="d-block mb-3">Portfolio jhonatan fernandez</p>
                         <small class="d-block mb-3" id="date_today"></small>
+                        <div class="container">
+                            <div class="row row-cols-3">
+                                <div class="col text-right">
+                                    <a href="https://www.facebook.com/jhonatan.fernandez.munos" target="_blank">
+                                        <img src="image/facebook.svg" width="50" height="50" alt="image not found"
+                                            loading="lazy">
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="https://api.whatsapp.com/send?phone=573114360830" target="_blank">
+                                        <img src="image/whatsapp.svg" width="50" height="50" alt="image not found"
+                                            loading="lazy">
+                                    </a>
+                                </div>
+                                <div class="col text-left">
+                                    <a href="https://www.instagram.com/jhonferm1153/" target="_blank">
+                                        <img src="image/instagram.svg" width="50" height="50" alt="image not found"
+                                            loading="lazy">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
 </body>
 </html>
