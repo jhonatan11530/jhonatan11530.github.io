@@ -52,7 +52,7 @@
                             <p class="hero-meta" data-i18n="heroMeta">Cali, Colombia | Ingles intermedio | Disponible para roles backend y full stack</p>
                             <div class="hero-actions d-flex flex-wrap">
                                 <a href="#proyectos" class="btn btn-primary-custom mr-3 mb-3" data-i18n="heroBtnProjects">Ver proyectos</a>
-                                <a href="https://drive.google.com/drive/folders/17-9c-mqNzGvFzm2B-DyBRaEliZQRb8eM?usp=sharing" class="btn btn-outline-light-custom mr-3 mb-3" download data-i18n="heroBtnCv">Descargar CV</a>
+                                <a href="https://drive.google.com/drive/folders/17-9c-mqNzGvFzm2B-DyBRaEliZQRb8eM?usp=sharing" target="_blank" class="btn btn-outline-light-custom mr-3 mb-3" download data-i18n="heroBtnCv">Descargar CV</a>
                                 <a href="#contacto" class="btn btn-outline-light-custom mb-3" data-i18n="heroBtnContact">Hablemos</a>
                             </div>
                         </div>
@@ -147,6 +147,17 @@
             </div>
         </section>
 
+        <section class="section-block pt-0" id="stack">
+            <div class="container-fluid page-shell">
+                <div class="section-heading">
+                    <div class="section-line"></div>
+                    <h2 class="section-title" data-i18n="stackTitle">Tecnologias clave</h2>
+                    <p class="section-copy" data-i18n="stackCopy">Un stack orientado a aplicaciones empresariales, integracion de sistemas y gestion de datos para entornos de alta demanda.</p>
+                </div>
+                <div id="skillsList"></div>
+            </div>
+        </section>
+
         <section class="section-block pt-0" id="proyectos">
             <div class="container-fluid page-shell">
                 <div class="section-heading">
@@ -165,67 +176,7 @@
                     <h2 class="section-title" data-i18n="experienceTitle">Experiencia profesional</h2>
                     <p class="section-copy" data-i18n="experienceCopy">Experiencia construyendo soluciones para entidades publicas, salud, soporte empresarial y operaciones internas con enfoque en calidad y continuidad.</p>
                 </div>
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <article class="timeline-card">
-                            <p class="timeline-period mb-2">Junio 2023 - Actualidad</p>
-                            <h4>Nexura International</h4>
-                            <p class="meta-text" data-i18n="exp1Role">Programmer - Cali, Colombia</p>
-                            <ul>
-                                <li data-i18n="exp1Bullet1">Desarrollo de aplicaciones en PHP y Laravel para entidades de gobierno.</li>
-                                <li data-i18n="exp1Bullet2">Trabajo con estandares de calidad, Azure DevOps y flujos CI/CD.</li>
-                                <li data-i18n="exp1Bullet3">Gestion de multiples bases de datos y procesos empresariales.</li>
-                            </ul>
-                        </article>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <article class="timeline-card">
-                            <p class="timeline-period mb-2">Marzo 2022 - Octubre 2022</p>
-                            <h4>Carvajal Technology and Services</h4>
-                            <p class="meta-text" data-i18n="exp2Role">Programmer - Cali, Colombia</p>
-                            <ul>
-                                <li data-i18n="exp2Bullet1">Desarrollo de software medico con C# .NET.</li>
-                                <li data-i18n="exp2Bullet2">Aplicacion de buenas practicas de desarrollo y calidad.</li>
-                                <li data-i18n="exp2Bullet3">Gestion de SQL Server, Oracle y procesos de integracion continua.</li>
-                            </ul>
-                        </article>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <article class="timeline-card">
-                            <p class="timeline-period mb-2">Abril 2021 - Enero 2022</p>
-                            <h4>STRATECSA</h4>
-                            <p class="meta-text" data-i18n="exp3Role">Programmer - Yumbo, Colombia</p>
-                            <ul>
-                                <li data-i18n="exp3Bullet1">Construccion de aplicacion web en Laravel para tickets y soporte.</li>
-                                <li data-i18n="exp3Bullet2">Mejora de experiencia de usuario en un entorno de uso intensivo.</li>
-                                <li data-i18n="exp3Bullet3">Pruebas, CI/CD y administracion de SQL Server y Oracle.</li>
-                            </ul>
-                        </article>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <article class="timeline-card">
-                            <p class="timeline-period mb-2">Enero 2019 - Enero 2021</p>
-                            <h4>Mainco Health Care</h4>
-                            <p class="meta-text" data-i18n="exp4Role">Programmer - Yumbo, Colombia</p>
-                            <ul>
-                                <li data-i18n="exp4Bullet1">Desarrollo de aplicacion web y movil para monitoreo de produccion.</li>
-                                <li data-i18n="exp4Bullet2">Implementacion en Java, PHP Laravel y Android.</li>
-                                <li data-i18n="exp4Bullet3">Validaciones de calidad y trabajo con MySQL, SQL Server y Oracle.</li>
-                            </ul>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-block pt-0" id="stack">
-            <div class="container-fluid page-shell">
-                <div class="section-heading">
-                    <div class="section-line"></div>
-                    <h2 class="section-title" data-i18n="stackTitle">Tecnologias clave</h2>
-                    <p class="section-copy" data-i18n="stackCopy">Un stack orientado a aplicaciones empresariales, integracion de sistemas y gestion de datos para entornos de alta demanda.</p>
-                </div>
-                <div id="skillsList"></div>
+                <div class="row" id="experienceList"></div>
             </div>
         </section>
 

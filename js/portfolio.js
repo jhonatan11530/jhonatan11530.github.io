@@ -10,23 +10,169 @@
                 { name: "PHP", imgSrc: "image/php.svg" },
                 { name: "Laravel", imgSrc: "image/laravel.svg" },
                 { name: "MySQL", imgSrc: "image/mysql.svg" },
-                { name: "Oracle", imgSrc: "image/oracle.svg" },
+                { name: "Oracle Database", imgSrc: "image/oracle.svg" },
                 { name: "SQL Server", imgSrc: "image/sql-server.svg" },
-                { name: "Flutter", imgSrc: "image/flutter.svg" },
-                { name: "Angular", imgSrc: "image/angular.svg" },
-                { name: "Google Cloud", imgSrc: "image/google-cloud.svg" }
+                { name: "Google Cloud", imgSrc: "image/google-cloud.svg" },
+                { name: "Oracle Cloud Infrastructure (OCI)", imgSrc: "image/oracle.svg" },
             ];
 
             const certifications = [
                 {
                     name: "Oracle Cloud Data Management 2023",
                     imgSrc: "image/Oracle-Cloud-Data-Management-2023-Certified-Foundations-Associate.svg",
-                    href: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=664DD770BBDD539E63339DC1A312A4D10DCE9B586C5FFC169E7B18B10139351A"
+                    href: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=664DD770BBDD539E63339DC1A312A4D10DCE9B586C5FFC169E7B18B10139351A",
+                    provider: "Oracle",
+                    isNew: false
                 },
                 {
                     name: "Oracle Cloud Infrastructure 2023",
                     imgSrc: "image/Oracle-Cloud-Infrastructure-2023-Certified-Foundations-Associate.svg",
-                    href: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=B6A9C33D38E52EE06CD8D75F8AF8D5DF7099D10CC61E48693E8205EFD33B097C"
+                    href: "https://catalog-education.oracle.com/pls/certview/sharebadge?id=B6A9C33D38E52EE06CD8D75F8AF8D5DF7099D10CC61E48693E8205EFD33B097C",
+                    provider: "Oracle",
+                    isNew: false
+                }
+            ];
+
+            const experiences = [
+                {
+                    company: "Nexura International",
+                    sector: "Gobierno",
+                    sectorEn: "Government",
+                    role: {
+                        es: "Ingeniero de Desarrollo - Cali, Colombia",
+                        en: "Development Engineer - Cali, Colombia"
+                    },
+                    period: {
+                        es: "Junio 2023 - Actualidad",
+                        en: "June 2023 - Present"
+                    },
+                    start: "2023-06",
+                    end: null,
+                    isNew: false,
+                    bullets: {
+                        es: [
+                            "Desarrollo de aplicaciones web en Laravel para entidades gubernamentales de alcance nacional.",
+                            "Implementacion de Azure DevOps y CI/CD para optimizar tiempos de entrega.",
+                            "Administracion de MySQL y cumplimiento de estandares de calidad superiores al 80%."
+                        ],
+                        en: [
+                            "Built Laravel web applications for national government institutions.",
+                            "Implemented Azure DevOps and CI/CD to optimize delivery times.",
+                            "Managed MySQL and met quality standards above 80%."
+                        ]
+                    }
+                },
+                {
+                    company: "Carvajal Technology and Services",
+                    sector: "Salud",
+                    sectorEn: "Healthcare",
+                    role: {
+                        es: "Ingeniero de Desarrollo - Cali, Colombia",
+                        en: "Development Engineer - Cali, Colombia"
+                    },
+                    period: {
+                        es: "Marzo 2022 - Octubre 2022",
+                        en: "March 2022 - October 2022"
+                    },
+                    start: "2022-03",
+                    end: "2022-10",
+                    isNew: false,
+                    bullets: {
+                        es: [
+                            "Diseno y desarrollo de soluciones medicas en C# .NET.",
+                            "Integracion de Azure DevOps con CI/CD para reducir errores de despliegue.",
+                            "Gestion y optimizacion de SQL Server y Oracle en aplicaciones criticas."
+                        ],
+                        en: [
+                            "Designed and developed healthcare solutions in C# .NET.",
+                            "Integrated Azure DevOps with CI/CD to reduce deployment errors.",
+                            "Managed and optimized SQL Server and Oracle for critical applications."
+                        ]
+                    }
+                },
+                {
+                    company: "Kool Marketing",
+                    sector: "E-commerce",
+                    sectorEn: "E-commerce",
+                    role: {
+                        es: "Programador - Cali, Colombia",
+                        en: "Programmer - Cali, Colombia"
+                    },
+                    period: {
+                        es: "Febrero 2022 - Marzo 2022",
+                        en: "February 2022 - March 2022"
+                    },
+                    start: "2022-02",
+                    end: "2022-03",
+                    isNew: false,
+                    bullets: {
+                        es: [
+                            "Desarrollo integral de tiendas virtuales en WordPress desde la conceptualizacion hasta el lanzamiento.",
+                            "Implementacion de pasarelas de pago seguras para fortalecer la confianza del e-commerce.",
+                            "Ejecucion de pruebas con 80% de cobertura para mejorar estabilidad y satisfaccion del cliente."
+                        ],
+                        en: [
+                            "Built e-commerce stores in WordPress from concept to launch.",
+                            "Integrated secure payment gateways to increase platform trust.",
+                            "Executed testing with 80% coverage to improve stability and customer satisfaction."
+                        ]
+                    }
+                },
+                {
+                    company: "STRATECSA",
+                    sector: "Telecomunicaciones",
+                    sectorEn: "Telecommunications",
+                    role: {
+                        es: "Programador - Yumbo, Colombia",
+                        en: "Programmer - Yumbo, Colombia"
+                    },
+                    period: {
+                        es: "Febrero 2021 - Febrero 2022",
+                        en: "February 2021 - February 2022"
+                    },
+                    start: "2021-02",
+                    end: "2022-02",
+                    isNew: false,
+                    bullets: {
+                        es: [
+                            "Construccion de un sistema de tickets y soporte en Laravel enfocado en eficiencia operativa.",
+                            "Diseno de una interfaz intuitiva con 95% de usabilidad para facilitar adopcion.",
+                            "Pruebas unitarias y CI/CD para asegurar entregas continuas y confiables."
+                        ],
+                        en: [
+                            "Built a Laravel ticketing and support platform focused on operational efficiency.",
+                            "Designed an intuitive interface with 95% usability to improve adoption.",
+                            "Implemented unit testing and CI/CD for reliable continuous delivery."
+                        ]
+                    }
+                },
+                {
+                    company: "Mainco Health Care",
+                    sector: "Salud",
+                    sectorEn: "Healthcare",
+                    role: {
+                        es: "Programador - Cali, Colombia",
+                        en: "Programmer - Cali, Colombia"
+                    },
+                    period: {
+                        es: "Enero 2020 - Enero 2021",
+                        en: "January 2020 - January 2021"
+                    },
+                    start: "2020-01",
+                    end: "2021-01",
+                    isNew: false,
+                    bullets: {
+                        es: [
+                            "Creacion de una aplicacion movil Android y una plataforma web en Laravel para monitoreo de produccion.",
+                            "Integracion de SQL Server, MySQL y Oracle para unificar informacion operativa.",
+                            "Mejora de experiencia de usuario y calidad mediante pruebas y entrega continua."
+                        ],
+                        en: [
+                            "Created an Android mobile app and a Laravel web platform for production monitoring.",
+                            "Integrated SQL Server, MySQL and Oracle to unify operational information.",
+                            "Improved user experience and software quality through testing and continuous delivery."
+                        ]
+                    }
                 }
             ];
 
@@ -104,18 +250,13 @@
                     emailAction: "Enviar correo",
                     locationTitle: "Ubicacion",
                     locationAction: "Volver arriba",
+                    badgeNew: "Nueva",
                     footerText: "Copyright 2019 - {year} Jhonatan Fernandez",
                     stats: [
-                        { value: "5+", label: "Anos de experiencia" },
-                        { value: "4", label: "Sectores atendidos" },
-                        { value: "2", label: "Certificaciones Oracle" },
+                        { label: "Anos de experiencia" },
+                        { label: "Sectores atendidos" },
+                        { label: "Certificaciones Oracle" },
                         { value: "80%+", label: "Estandares de calidad" }
-                    ],
-                    sectors: [
-                        "Gobierno",
-                        "Salud",
-                        "Telecomunicaciones",
-                        "E-commerce"
                     ],
                     services: [
                         {
@@ -251,18 +392,13 @@
                     emailAction: "Send email",
                     locationTitle: "Location",
                     locationAction: "Back to top",
+                    badgeNew: "New",
                     footerText: "Copyright 2019 - {year} Jhonatan Fernandez",
                     stats: [
-                        { value: "5+", label: "Years of experience" },
-                        { value: "4", label: "Industries served" },
-                        { value: "2", label: "Oracle certifications" },
+                        { label: "Years of experience" },
+                        { label: "Industries served" },
+                        { label: "Oracle certifications" },
                         { value: "80%+", label: "Quality standards" }
-                    ],
-                    sectors: [
-                        "Government",
-                        "Healthcare",
-                        "Telecommunications",
-                        "E-commerce"
                     ],
                     services: [
                         {
@@ -333,6 +469,7 @@
 
             renderSkills();
             renderCertifications();
+            renderExperienceList();
             setLanguage("es");
             bindLanguageButtons();
             initGitHubRepos("jhonatan11530");
@@ -374,6 +511,8 @@
                 renderSectors();
                 renderServices();
                 renderFeaturedProjects();
+                renderExperienceList();
+                renderCertifications();
                 renderRepos();
             }
 
@@ -388,14 +527,17 @@
             }
 
             function renderCertifications() {
+                const t = translations[state.lang];
                 const container = document.getElementById("certificationsList");
+                container.innerHTML = "";
                 certifications.forEach(function (certification) {
                     const node = document.createElement("div");
                     node.className = "col-md-6 mb-4";
+                    const badge = certification.isNew ? '<span class="item-badge">' + t.badgeNew + "</span>" : "";
                     node.innerHTML = '' +
                         '<a class="cert-card" href="' + certification.href + '" target="_blank" rel="noopener noreferrer">' +
                         '<img src="' + certification.imgSrc + '" alt="' + certification.name + '" loading="lazy">' +
-                        '<div class="mt-3 font-weight-bold text-dark">' + certification.name + "</div>" +
+                        '<div class="mt-3 font-weight-bold text-dark">' + certification.name + badge + "</div>" +
                         "</a>";
                     container.appendChild(node);
                 });
@@ -406,7 +548,14 @@
                 const container = document.getElementById("statsList");
                 container.innerHTML = "";
 
-                t.stats.forEach(function (stat) {
+                const dynamicStats = [
+                    { value: getExperienceYearsLabel(), label: t.stats[0].label },
+                    { value: String(getUniqueSectorMeta().length), label: t.stats[1].label },
+                    { value: String(getOracleCertificationsCount()), label: t.stats[2].label },
+                    { value: t.stats[3].value, label: t.stats[3].label }
+                ];
+
+                dynamicStats.forEach(function (stat) {
                     const node = document.createElement("div");
                     node.className = "col-xl-3 col-md-6 mb-4";
                     node.innerHTML = '' +
@@ -423,12 +572,87 @@
                 const container = document.getElementById("sectorList");
                 container.innerHTML = "";
 
-                t.sectors.forEach(function (sector) {
+                getUniqueSectorMeta().forEach(function (sector) {
                     const node = document.createElement("span");
                     node.className = "sector-chip";
-                    node.textContent = sector;
+                    node.innerHTML = sector.name + (sector.isNew ? '<span class="item-badge">' + t.badgeNew + "</span>" : "");
                     container.appendChild(node);
                 });
+            }
+
+            function renderExperienceList() {
+                const t = translations[state.lang];
+                const container = document.getElementById("experienceList");
+                container.innerHTML = "";
+
+                experiences.forEach(function (experience) {
+                    const node = document.createElement("div");
+                    const badge = experience.isNew ? '<span class="item-badge">' + t.badgeNew + "</span>" : "";
+                    const bullets = experience.bullets[state.lang].map(function (item) {
+                        return "<li>" + item + "</li>";
+                    }).join("");
+
+                    node.className = "col-lg-6 mb-4";
+                    node.innerHTML = '' +
+                        '<article class="timeline-card">' +
+                        '<p class="timeline-period mb-2">' + experience.period[state.lang] + "</p>" +
+                        "<h4>" + experience.company + badge + "</h4>" +
+                        '<p class="meta-text">' + experience.role[state.lang] + "</p>" +
+                        "<ul>" + bullets + "</ul>" +
+                        "</article>";
+                    container.appendChild(node);
+                });
+            }
+
+            function getMonthIndex(dateValue) {
+                const parts = dateValue.split("-").map(function (item) {
+                    return Number(item);
+                });
+                return (parts[0] * 12) + (parts[1] - 1);
+            }
+
+            function getCurrentMonthIndex() {
+                const now = new Date();
+                return (now.getFullYear() * 12) + now.getMonth();
+            }
+
+            function getExperienceMonthsTotal() {
+                return experiences.reduce(function (total, experience) {
+                    const start = getMonthIndex(experience.start);
+                    const end = experience.end ? getMonthIndex(experience.end) : getCurrentMonthIndex();
+                    const months = Math.max(0, end - start + 1);
+                    return total + months;
+                }, 0);
+            }
+
+            function getExperienceYearsLabel() {
+                const totalMonths = getExperienceMonthsTotal();
+                const years = Math.floor(totalMonths / 12);
+                return String(Math.max(1, years)) + "+";
+            }
+
+            function getUniqueSectorMeta() {
+                const sectorMap = new Map();
+
+                experiences.forEach(function (experience) {
+                    const key = state.lang === "es" ? experience.sector : experience.sectorEn;
+                    if (!sectorMap.has(key)) {
+                        sectorMap.set(key, {
+                            name: key,
+                            isNew: Boolean(experience.isNew)
+                        });
+                    } else if (experience.isNew) {
+                        sectorMap.get(key).isNew = true;
+                    }
+                });
+
+                return Array.from(sectorMap.values());
+            }
+
+            function getOracleCertificationsCount() {
+                return certifications.filter(function (certification) {
+                    return certification.provider && certification.provider.toLowerCase() === "oracle";
+                }).length;
             }
 
             function renderServices() {
